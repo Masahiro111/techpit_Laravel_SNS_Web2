@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ArticleController::class, 'index']);
+Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
+Route::resource('/articles', ArticleController::class)->except(['index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

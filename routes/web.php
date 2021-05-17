@@ -22,6 +22,8 @@ Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
 
 Route::resource('/articles', ArticleController::class)->except(['index'])->middleware('auth');
 
+Route::resource('/articles', ArticleController::class)->only(['show']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
